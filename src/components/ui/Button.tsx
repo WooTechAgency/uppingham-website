@@ -19,13 +19,13 @@ export type ButtonProps = Omit<
 };
 
 const base =
-  'relative inline-flex items-center justify-center gap-2 rounded-xl font-medium transition ' +
+  'relative inline-flex items-center justify-center gap-2 font-medium transition min-w-[300px] h-[70px]' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
   'disabled:pointer-events-none disabled:opacity-50';
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-neutral-900 text-white hover:opacity-90 focus-visible:ring-neutral-900',
+    'bg-secondary text-white border border-secondary hover:bg-transparent hover:text-primary hover:border-primary focus-visible:ring-neutral-900',
   secondary:
     'bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus-visible:ring-neutral-400',
   outline:
@@ -35,9 +35,9 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'h-9 px-3 text-sm',
-  md: 'h-11 px-4 text-sm',
-  lg: 'h-12 px-6 text-base',
+  sm: 'h-[50px] px-3 text-sm',
+  md: 'h-[70px] px-4 text-sm',
+  lg: 'h-[70px] px-6 text-base',
 };
 
 export function Button({

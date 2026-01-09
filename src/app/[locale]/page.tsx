@@ -1,13 +1,28 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { Button } from '@/components/ui/Button';
+import { getPageContent } from '@/lib/data/pages';
+import { BlockRenderer } from '@/components/page-blocks/BlockRenderer';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = getPageContent('home');
+  return {
+    title: content?.metadata?.title || 'Uppingham Vietnam',
+    description: content?.metadata?.description || '',
+  };
+}
 
 export default function HomePage() {
-  const t = useTranslations('common');
+  // Option 1: Use page data with BlockRenderer (data-driven)
+  // const content = getPageContent('home');
+  // return <BlockRenderer sections={content.sections} />;
 
+  // Option 2: Call sections directly (component-driven)
   return (
-    <main className="p-10">
-      <Button variant="primary">{t('discoverCampus')}</Button>
-    </main>
+    <>
+      <HeroSection />
+      {/* Add more sections directly here */}
+      {/* <TextSection /> */}
+      {/* <FeaturesSection /> */}
+    </>
   );
 }

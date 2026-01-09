@@ -3,6 +3,18 @@
     "discoverCampus": "Discover Campus",
     "keyLinks": "Key Links",
     "contact": "Contact",
-    "admissions": "Admissions"
+    "admissions": "Admissions",
+    "careers": "Careers",
+    "portals": "Portals",
+    "studentPortal": "Student Portal",
+    "parentPortal": "Parent Portal",
+    "staffPortal": "Staff Portal"
+  },
+  "hero": {
+    "headingLine1": "WHERE TOMORROW'S",
+    "headingLine2": "LEADERS ARE MADE",
+    "ctaButton": "Start your admission journey",
+    "tagline": "Where British heritage meets future-ready education.",
+    "description": "Rooted in over four centuries of excellence, Uppingham empowers young people to thrive - with curiosity, compassion and courage - in an ever-changing world."
   }
 }
