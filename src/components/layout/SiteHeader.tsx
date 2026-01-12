@@ -29,7 +29,7 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-stone py-11">
+    <header className=" top-0 z-50 w-full bg-stone py-11">
       <div className="container">
         <div className="flex items-center justify-between h-15">
           {/* Left Section: Hamburger Menu + Navigation Links */}

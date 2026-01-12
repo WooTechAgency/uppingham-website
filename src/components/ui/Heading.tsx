@@ -29,14 +29,27 @@ export function Heading<T extends React.ElementType = 'h2'>({
 }: HeadingProps<T>) {
   const Comp = (as ?? 'h2') as React.ElementType;
 
+  // Extract text-heading-h* class to ensure it's preserved
+  const headingSizeClass = `text-heading-${variant}`;
+  const otherVariantClasses = variantClasses[variant]
+    .split(' ')
+    .filter((cls) => !cls.startsWith('text-heading-'))
+    .join(' ');
+
   return (
     <Comp
       className={cn(
         'font-tt-norms text-primary-dark-blue',
-        variantClasses[variant],
+        otherVariantClasses,
+        headingSizeClass, // Apply heading size class separately to ensure it's preserved
         align === 'center' ? 'text-center' : 'text-left',
         className
       )}
+      style={{
+        // Fallback: ensure font-size is applied even if class is removed by tailwind-merge
+        fontSize: `var(--heading-${variant})`,
+        lineHeight: `var(--line-height-${variant})`,
+      }}
     >
       {children}
     </Comp>

@@ -15,5 +15,54 @@
     "ctaButton": "Start your admission journey",
     "tagline": "Where British heritage meets future-ready education.",
     "description": "Rooted in over four centuries of excellence, Uppingham empowers young people to thrive - with curiosity, compassion and courage - in an ever-changing world."
+  },
+  "headmaster": {
+    "heading": "HEADMASTER'S WELCOME",
+    "tagline": "Uppingham is a vibrant, stimulating, energetic and forward-looking school.",
+    "paragraph1": "We may be a school with a long and proud heritage, yet we look forward into the twenty-first century with imagination and confidence. The value of an all-round education, in which each individual and their talents come first, is fundamental to the Uppingham experience.",
+    "paragraph2": "Our community values people. We are warm, compassionate and mutually supportive. Here, generosity of spirit and respect matter. We have the balance in our worldview to take the time to enjoy life. Our pupils, in all their diversity, are appreciated for who they are. They shape the community and, supported by staff who truly care, make Uppingham the rich and happy place it is.",
+    "ctaButton": "Meet our team",
+    "ctaButtonHref": "/about",
+    "imageSrc": "/images/headmaster.jpg",
+    "imageAlt": "Headmaster"
+  },
+  "campus": {
+    "discoverButton": "Discover Campus",
+    "hungYen": {
+      "name": "UPPINGHAM HUNG YEN CAMPUS",
+      "opening": "Opening 2026",
+      "image": "/images/campuses/hung-yen-campus.jpg",
+      "imageAlt": "Uppingham Hung Yen Campus",
+      "href": "/our-campuses/hung-yen"
+    },
+    "dongNai": {
+      "name": "UPPINGHAM DONG NAI CAMPUS",
+      "opening": "Opening 2027",
+      "image": "/images/campuses/dong-nai-campus.jpg",
+      "imageAlt": "Uppingham Dong Nai Campus",
+      "href": "/our-campuses/dong-nai"
+    }
+  },
+  "admissions": {
+    "heading": "Admissions",
+    "slogan": "OPENING MINDS. OPENING FUTURES.",
+    "earlyYears": {
+      "ageRange": "Age 2-5",
+      "name": "EARLY YEARS",
+      "image": "/images/admissions/early-years.jpg",
+      "imageAlt": "Early Years students"
+    },
+    "primary": {
+      "ageRange": "Age 5-11",
+      "name": "PRIMARY",
+      "image": "/images/admissions/primary.jpg",
+      "imageAlt": "Primary students"
+    },
+    "secondary": {
+      "ageRange": "Age 11-16",
+      "name": "SECONDARY",
+      "image": "/images/admissions/secondary.jpg",
+      "imageAlt": "Secondary students"
+    }
   }
 }

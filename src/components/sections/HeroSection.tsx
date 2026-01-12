@@ -13,10 +13,7 @@ export function HeroSection() {
 
   return (
     <section className="relative flex items-center justify-between">
-      <Container
-        size="wide"
-        className="relative z-10 flex flex-col justify-between pb-[75px]"
-      >
+      <div className="container">
         <div className="h-full flex flex-col items-center justify-between gap-[50px]">
           {/* Line 1: from top to above heading (stops before "WHERE TOMORROW'S LEADERS ARE MADE") */}
           <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] bg-red mx-auto relative " />
@@ -66,7 +63,7 @@ export function HeroSection() {
             </Text>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

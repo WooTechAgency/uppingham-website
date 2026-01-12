@@ -15,5 +15,54 @@
     "ctaButton": "Bắt đầu hành trình tuyển sinh",
     "tagline": "Nơi di sản Anh quốc gặp gỡ giáo dục sẵn sàng cho tương lai.",
     "description": "Bắt nguồn từ hơn bốn thế kỷ xuất sắc, Uppingham trao quyền cho giới trẻ phát triển - với sự tò mò, lòng trắc ẩn và lòng dũng cảm - trong một thế giới không ngừng thay đổi."
+  },
+  "headmaster": {
+    "heading": "LỜI CHÀO MỪNG CỦA HIỆU TRƯỞNG",
+    "tagline": "Uppingham là một ngôi trường năng động, kích thích, tràn đầy năng lượng và hướng tới tương lai.",
+    "paragraph1": "Chúng tôi có thể là một ngôi trường với di sản lâu đời và tự hào, nhưng chúng tôi nhìn về phía trước vào thế kỷ hai mươi mốt với trí tưởng tượng và tự tin. Giá trị của một nền giáo dục toàn diện, trong đó mỗi cá nhân và tài năng của họ được đặt lên hàng đầu, là nền tảng của trải nghiệm Uppingham.",
+    "paragraph2": "Cộng đồng của chúng tôi coi trọng con người. Chúng tôi ấm áp, nhân ái và hỗ trợ lẫn nhau. Ở đây, sự hào phóng của tinh thần và sự tôn trọng rất quan trọng. Chúng tôi có sự cân bằng trong thế giới quan của mình để dành thời gian tận hưởng cuộc sống. Học sinh của chúng tôi, trong tất cả sự đa dạng của họ, được đánh giá cao vì chính con người họ. Họ định hình cộng đồng và, được hỗ trợ bởi đội ngũ nhân viên thực sự quan tâm, làm cho Uppingham trở thành một nơi phong phú và hạnh phúc.",
+    "ctaButton": "Gặp gỡ đội ngũ của chúng tôi",
+    "ctaButtonHref": "/about",
+    "imageSrc": "/images/headmaster.jpg",
+    "imageAlt": "Hiệu trưởng"
+  },
+  "campus": {
+    "discoverButton": "Khám phá cơ sở",
+    "hungYen": {
+      "name": "CƠ SỞ UPPINGHAM HƯNG YÊN",
+      "opening": "Khai trương 2026",
+      "image": "/images/campuses/hung-yen-campus.jpg",
+      "imageAlt": "Cơ sở Uppingham Hưng Yên",
+      "href": "/our-campuses/hung-yen"
+    },
+    "dongNai": {
+      "name": "CƠ SỞ UPPINGHAM ĐỒNG NAI",
+      "opening": "Khai trương 2027",
+      "image": "/images/campuses/dong-nai-campus.jpg",
+      "imageAlt": "Cơ sở Uppingham Đồng Nai",
+      "href": "/our-campuses/dong-nai"
+    }
+  },
+  "admissions": {
+    "heading": "Tuyển sinh",
+    "slogan": "MỞ CỬA TƯ DUY. MỞ CỬA TƯƠNG LAI.",
+    "earlyYears": {
+      "ageRange": "Độ tuổi 2-5",
+      "name": "MẦM NON",
+      "image": "/images/admissions/early-years.jpg",
+      "imageAlt": "Học sinh mầm non"
+    },
+    "primary": {
+      "ageRange": "Độ tuổi 5-11",
+      "name": "TIỂU HỌC",
+      "image": "/images/admissions/primary.jpg",
+      "imageAlt": "Học sinh tiểu học"
+    },
+    "secondary": {
+      "ageRange": "Độ tuổi 11-16",
+      "name": "TRUNG HỌC",
+      "image": "/images/admissions/secondary.jpg",
+      "imageAlt": "Học sinh trung học"
+    }
   }
 }

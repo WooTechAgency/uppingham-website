@@ -19,7 +19,7 @@ export type ButtonProps = Omit<
 };
 
 const base =
-  'relative inline-flex items-center justify-center gap-[10px] font-tt-norms font-semibold transition-colors box-border' +
+  'relative inline-flex items-center justify-center gap-[10px] font-tt-norms font-[450] transition-colors box-border' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
   'disabled:pointer-events-none disabled:opacity-50';
 

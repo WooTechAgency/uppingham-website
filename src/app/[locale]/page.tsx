@@ -1,6 +1,10 @@
 import { getPageContent } from '@/lib/data/pages';
 // import { BlockRenderer } from '@/components/page-blocks/BlockRenderer';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { Headmaster } from '@/components/sections/Headmaster';
+import { VideoSection } from '@/components/sections/VideoSection';
+import { Campus } from '@/components/sections/Campus';
+import { Admissions } from '@/components/sections/Admissions';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,6 +24,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <VideoSection />
+      <Headmaster />
+      <Campus />
+      <Admissions />
     </>
   );
 }
