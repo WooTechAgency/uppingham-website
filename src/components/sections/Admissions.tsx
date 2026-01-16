@@ -34,15 +34,22 @@ export function Admissions() {
   ];
 
   return (
+    // <section
+    //   className=" bg-no-repeat bg-contain bg-bottom-center relative pt-25 pb-[275px] before:content-[''] before:absolute before:top-0 before:left-[50%] before:w-[1px] before:h-full before:bg-red before:z-[1] before:translate-x-[-50%]"
+    //   style={{
+    //     backgroundImage: 'url(/home/admissions-bg.png)',
+    //     backgroundPosition: 'bottom center',
+    //   }}
+    // >
     <section
-      className=" bg-no-repeat bg-contain bg-bottom-center relative pt-25 pb-[275px] before:content-[''] before:absolute before:top-0 before:left-[50%] before:w-[1px] before:h-full before:bg-red before:z-[1] before:translate-x-[-50%]"
+      className=" bg-no-repeat bg-contain bg-bottom-center relative p6-25 pb-[275px] "
       style={{
         backgroundImage: 'url(/home/admissions-bg.png)',
         backgroundPosition: 'bottom center',
       }}
     >
       <div className="container z-10 relative">
-        <div className="flex flex-col items-center gap-12 py-[75px] bg-stone">
+        <div className=" flex flex-col items-center gap-12 mt-25 py-[75px] bg-stone">
           {/* Small Heading */}
           <Text
             as="p"

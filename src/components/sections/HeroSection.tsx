@@ -16,7 +16,8 @@ export function HeroSection() {
       <div className="container">
         <div className="h-full flex flex-col items-center justify-between gap-[50px]">
           {/* Line 1: from top to above heading (stops before "WHERE TOMORROW'S LEADERS ARE MADE") */}
-          <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] bg-red mx-auto relative " />
+          {/* <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] bg-redmx-auto relative " /> */}
+          <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] mx-auto relative " />
           {/* Main Heading */}
           <div className="text-center relative flex flex-col items-center gap-6">
             <Heading
@@ -37,7 +38,8 @@ export function HeroSection() {
           </div>
 
           {/* Line 2: from below button to bottom (between button and tagline text) */}
-          <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] bg-red mx-auto relative " />
+          {/* <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] bg-red mx-auto relative " /> */}
+          <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)] mx-auto relative " />
           {/* Descriptive Text Section */}
           <div className="w-full max-w-4xl px-4 gap-4 flex flex-col">
             {/* Tagline */}

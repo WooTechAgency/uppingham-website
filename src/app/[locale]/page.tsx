@@ -23,11 +23,11 @@ export default function HomePage() {
   // Option 2: Call sections directly (component-driven)
   return (
     <>
+      <Admissions />
       <HeroSection />
       <VideoSection />
       <Headmaster />
       <Campus />
-      <Admissions />
     </>
   );
 }
