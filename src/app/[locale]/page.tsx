@@ -5,6 +5,7 @@ import { Headmaster } from '@/components/sections/Headmaster';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { Campus } from '@/components/sections/Campus';
 import { Admissions } from '@/components/sections/Admissions';
+import { ClassroomSlider } from '@/components/sections/ClassroomSlider';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,11 +24,12 @@ export default function HomePage() {
   // Option 2: Call sections directly (component-driven)
   return (
     <>
-      <Admissions />
       <HeroSection />
       <VideoSection />
       <Headmaster />
+      <ClassroomSlider />
       <Campus />
+      <Admissions />
     </>
   );
 }

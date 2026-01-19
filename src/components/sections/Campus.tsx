@@ -30,7 +30,8 @@ export function Campus() {
   ];
 
   return (
-    <section className="relative py-25  before:content-[''] before:absolute before:top-0 before:left-[50%] before:w-[1px] before:h-full before:bg-red before:z-[21] before:translate-x-[-50%]">
+    <section className="relative py-25">
+       {/* before:content-[''] before:absolute before:top-0 before:left-[50%] before:w-[1px] before:h-full before:bg-red before:z-[21] before:translate-x-[-50%] */}
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 2xl:gap-30 items-center">
           {campuses.map((campus, index) => (

@@ -92,11 +92,11 @@ export function VideoSection({
   return (
     <section
       ref={sectionRef}
-      className={cn('relative pt-[75px] overflow-hidden', className)}
+      className={cn('relative overflow-hidden z-20 ', className)}
     >
       <div className="container">
         <div
-          className="mx-auto relative transition-all duration-300 ease-out will-change-[width]"
+          className="bg-stone pt-[75px] mx-auto relative transition-all duration-300 ease-out will-change-[width]"
           style={{
             width: `${width}%`,
           }}
