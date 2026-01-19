@@ -9,56 +9,178 @@ type RedLineProps = {
 
 export function RedLine({ className }: RedLineProps) {
   const [lineHeight, setLineHeight] = React.useState(0);
-  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const rafIntroRef = React.useRef<number | null>(null);
+  const rafFollowRef = React.useRef<number | null>(null);
+
+  const isIntroDoneRef = React.useRef(false);
+  const currentHeightRef = React.useRef(0);
+  const targetHeightRef = React.useRef(0);
 
   React.useEffect(() => {
-    const updateLineHeight = () => {
+    const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+
+    const getFirstFoldProgress = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      return documentHeight > 0 ? clamp01(windowHeight / documentHeight) : 1;
+    };
+
+    const getScrollProgress = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      // Calculate total scrollable height
       const totalScrollableHeight = documentHeight - windowHeight;
-
-      // Calculate scroll progress (0 to 1)
-      const scrollProgress =
-        totalScrollableHeight > 0
-          ? Math.min(1, Math.max(0, scrollTop / totalScrollableHeight))
-          : 0;
-
-      // Line height grows from 0 to 100% as user scrolls
-      const currentHeight = scrollProgress * 100;
-
-      setLineHeight(currentHeight);
+      return totalScrollableHeight > 0 ? clamp01(scrollTop / totalScrollableHeight) : 0;
     };
 
-    // Initial calculation
-    updateLineHeight();
+    // baseline first fold + scroll progress
+    const computeCombinedHeightPercent = () => {
+      const firstFold = getFirstFoldProgress(); // 0..1
+      const scrollP = getScrollProgress(); // 0..1
+      const combined = clamp01(firstFold + (1 - firstFold) * scrollP);
+      return combined * 100;
+    };
 
-    // Throttle scroll events for performance
+    const setImmediate = (v: number) => {
+      currentHeightRef.current = v;
+      targetHeightRef.current = v;
+      setLineHeight(v);
+    };
+
+    const cancelIntro = () => {
+      if (rafIntroRef.current !== null) {
+        cancelAnimationFrame(rafIntroRef.current);
+        rafIntroRef.current = null;
+      }
+      isIntroDoneRef.current = true;
+    };
+
+    // ---- Smooth follower (scroll) ----
+    const startFollow = () => {
+      if (rafFollowRef.current !== null) return;
+
+      const follow = () => {
+        const current = currentHeightRef.current;
+        const target = targetHeightRef.current;
+
+        // tốc độ bám: nhỏ hơn -> chậm hơn, mượt hơn
+        const smoothing = 0.12; // thử 0.08–0.18
+        const next = current + (target - current) * smoothing;
+
+        currentHeightRef.current = next;
+        setLineHeight(next);
+
+        // nếu còn lệch đáng kể thì tiếp tục animate
+        if (Math.abs(target - next) > 0.02) {
+          rafFollowRef.current = requestAnimationFrame(follow);
+        } else {
+          // snap nhẹ về target để khỏi sai số
+          currentHeightRef.current = target;
+          setLineHeight(target);
+          rafFollowRef.current = null;
+        }
+      };
+
+      rafFollowRef.current = requestAnimationFrame(follow);
+    };
+
+    const syncToScrollSmooth = () => {
+      targetHeightRef.current = computeCombinedHeightPercent();
+      startFollow();
+    };
+
+    // ---- Intro: animate 0 -> first fold ----
+    const runIntro = () => {
+      const targetHeightPercent = getFirstFoldProgress() * 100;
+
+      // đảm bảo intro thấy rõ
+      setImmediate(0);
+
+      const durationMs = 1400;
+      const start = performance.now();
+
+      const easeInOutCubic = (t: number) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      const tick = (now: number) => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > 0) {
+          cancelIntro();
+          // vào chế độ follow ngay
+          setImmediate(computeCombinedHeightPercent());
+          return;
+        }
+
+        const t = clamp01((now - start) / durationMs);
+        const eased = easeInOutCubic(t);
+        const v = targetHeightPercent * eased;
+
+        currentHeightRef.current = v;
+        setLineHeight(v);
+
+        if (t < 1) {
+          rafIntroRef.current = requestAnimationFrame(tick);
+        } else {
+          rafIntroRef.current = null;
+          isIntroDoneRef.current = true;
+
+          // set baseline xong thì chuyển qua follow (nhưng không “reset”)
+          setImmediate(targetHeightPercent);
+        }
+      };
+
+      rafIntroRef.current = requestAnimationFrame(tick);
+    };
+
+    // ---- Events ----
     let ticking = false;
     const handleScroll = () => {
+      if (!isIntroDoneRef.current) cancelIntro();
+
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateLineHeight();
+        ticking = true;
+        requestAnimationFrame(() => {
+          syncToScrollSmooth();
           ticking = false;
         });
-        ticking = true;
       }
     };
 
+    const handleResize = () => {
+      // resize làm firstFold thay đổi => update target và follow mượt
+      if (!isIntroDoneRef.current) {
+        if (rafIntroRef.current !== null) cancelAnimationFrame(rafIntroRef.current);
+        runIntro();
+        return;
+      }
+      syncToScrollSmooth();
+    };
+
+    // Init
+    const initialScrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (initialScrollTop > 0) {
+      isIntroDoneRef.current = true;
+      setImmediate(computeCombinedHeightPercent());
+    } else {
+      runIntro();
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', updateLineHeight, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateLineHeight);
+      window.removeEventListener('resize', handleResize);
+
+      if (rafIntroRef.current !== null) cancelAnimationFrame(rafIntroRef.current);
+      if (rafFollowRef.current !== null) cancelAnimationFrame(rafFollowRef.current);
     };
   }, []);
 
   return (
     <div
-      ref={containerRef}
       className={cn(
         'absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full pointer-events-none z-10 red-line',
         className
