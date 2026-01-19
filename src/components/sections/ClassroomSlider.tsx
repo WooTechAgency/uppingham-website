@@ -19,7 +19,7 @@ export function ClassroomSlider() {
   const t = useTranslations('classroomSlider');
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  // TODO: Add remaining slides once Figma provides the full set.
+  // TODO: Replace placeholder slides with final Figma copy when available.
   const slides: Slide[] = [
     {
       id: 'early-foundations',
@@ -27,6 +27,13 @@ export function ClassroomSlider() {
       description: t('slides.earlyFoundations.description'),
       image: t('slides.earlyFoundations.image'),
       imageAlt: t('slides.earlyFoundations.imageAlt'),
+    },
+    {
+      id: 'senior-foundations',
+      title: t('slides.seniorFoundations.title'),
+      description: t('slides.seniorFoundations.description'),
+      image: t('slides.seniorFoundations.image'),
+      imageAlt: t('slides.seniorFoundations.imageAlt'),
     },
   ];
 
@@ -46,6 +53,28 @@ export function ClassroomSlider() {
     }
     setActiveIndex((current) => (current + 1) % slides.length);
   };
+
+  React.useEffect(() => {
+    if (!hasMultipleSlides) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia?.(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, 7000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [hasMultipleSlides, slides.length]);
 
   return (
     <section
@@ -114,6 +143,24 @@ export function ClassroomSlider() {
             <Text as="p" variant="body" align="left" className="text-primary">
               {activeSlide.description}
             </Text>
+            {hasMultipleSlides ? (
+              <div className="mt-4 flex items-center justify-center gap-3 lg:justify-start">
+                {slides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={t('slideButton', { index: index + 1 })}
+                    className={cn(
+                      'h-2.5 w-2.5 rounded-full border border-primary transition',
+                      index === activeIndex
+                        ? 'bg-primary'
+                        : 'bg-transparent hover:border-primary/70'
+                    )}
+                  />
+                ))}
+              </div>
+            ) : null}
           </div>
 
           <button

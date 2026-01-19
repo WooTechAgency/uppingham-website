@@ -70,13 +70,28 @@
     "heading": "THE CLASSROOM EXPERIENCE",
     "previousButton": "Previous slide",
     "nextButton": "Next slide",
+    "slideButton": "Go to slide {index}",
     "slides": {
       "earlyFoundations": {
         "title": "EARLY FOUNDATIONS THROUGH PLAY",
         "description": "Early learning happens everywhere: on the carpet, in the outdoor garden, at the art table, in role-play corners and during circle time. Our educators guide children with warmth and intention - supporting emerging language, social skills and physical coordination through play-based experiences.",
         "image": "/home/classroom.jpg",
         "imageAlt": "Student learning in the classroom"
+      },
+      "seniorFoundations": {
+        "title": "2 EARLY FOUNDATIONS THROUGH PLAY",
+        "description": "2 Early learning happens everywhere: on the carpet, in the outdoor garden, at the art table, in role-play corners and during circle time. Our educators guide children with warmth and intention - supporting emerging language, social skills and physical coordination through play-based experiences.",
+        "image": "/home/early-year.jpg",
+        "imageAlt": "Student learning in the classroom"
       }
     }
+  },
+  "heroImage": {
+    "eyebrow": "Learning",
+    "heading": "JUNIOR SCHOOL",
+    "ctaLabel": "Apply now",
+    "ctaHref": "/admissions",
+    "imageSrc": "/home/hero-senior.jpg",
+    "imageAlt": "Students learning together"
   }
 }

@@ -70,13 +70,28 @@
     "heading": "TRẢI NGHIỆM LỚP HỌC",
     "previousButton": "Slide trước",
     "nextButton": "Slide tiếp theo",
+    "slideButton": "Chuyển đến slide {index}",
     "slides": {
       "earlyFoundations": {
         "title": "NỀN TẢNG ĐẦU ĐỜI QUA VUI CHƠI",
         "description": "Học tập sớm diễn ra ở mọi nơi: trên thảm, trong vườn ngoài trời, tại bàn nghệ thuật, ở góc nhập vai và trong giờ sinh hoạt vòng tròn. Đội ngũ giáo viên đồng hành với sự ấm áp và chủ ý - hỗ trợ ngôn ngữ mới hình thành, kỹ năng xã hội và phối hợp thể chất thông qua các trải nghiệm học bằng chơi.",
         "image": "/home/classroom.jpg",
         "imageAlt": "Học sinh đang học trong lớp"
+      },
+      "seniorFoundations": {
+        "title": "2 NỀN TẢNG ĐẦU ĐỜI QUA VUI CHƠI",
+        "description": "2 Học tập sớm diễn ra ở mọi nơi: trên thảm, trong vườn ngoài trời, tại bàn nghệ thuật, ở góc nhập vai và trong giờ sinh hoạt vòng tròn. Đội ngũ giáo viên đồng hành với sự ấm áp và chủ ý - hỗ trợ ngôn ngữ mới hình thành, kỹ năng xã hội và phối hợp thể chất thông qua các trải nghiệm học bằng chơi.",
+        "image": "/home/early-year.jpg",
+        "imageAlt": "Học sinh đang học trong lớp"
       }
     }
+  },
+  "heroImage": {
+    "eyebrow": "Học tập",
+    "heading": "BẬC TIỂU HỌC",
+    "ctaLabel": "Nộp đơn ngay",
+    "ctaHref": "/admissions",
+    "imageSrc": "/home/hero-senior.jpg",
+    "imageAlt": "Học sinh đang học cùng nhau"
   }
 }
