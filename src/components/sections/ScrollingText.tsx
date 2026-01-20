@@ -20,9 +20,38 @@ export function ScrollingText({
   const text = t('text');
   const resolvedBackgroundSrc = backgroundSrc ?? t('backgroundImage');
   const resolvedBackgroundAlt = backgroundAlt ?? t('backgroundAlt');
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const [hasEntered, setHasEntered] = React.useState(false);
+
+  React.useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className={cn('relative w-full aspect-[1920/1080] overflow-hidden z-20', className)}>
+    <section
+      ref={sectionRef}
+      className={cn(
+        'relative w-full aspect-[1920/1080] overflow-hidden z-20',
+        className
+      )}
+    >
       <Image
           src={resolvedBackgroundSrc}
           alt={resolvedBackgroundAlt}
@@ -34,7 +63,7 @@ export function ScrollingText({
       <div className="absolute inset-0 bg-black/35" />
       <div className="container h-full">
         <div className="relative flex items-center justify-center h-full w-full max-w-[72%] lg:max-w-[60%] mx-auto">
-            <div className="w-full text-center">
+            <div className={cn('w-full text-center', hasEntered && 'animate-scroll-diagonal')}>
               {text.split(' ').map((word, wordIndex) => (
                 <span
                   key={`${word}-${wordIndex}`}
@@ -43,9 +72,12 @@ export function ScrollingText({
                   {word.split('').map((char, charIndex) => (
                     <span
                       key={`${word}-${char}-${charIndex}`}
-                      className="inline-block animate-fadeinup-char text-white uppercase text-[clamp(24px,2vw,36px)] leading-[1.38]"
+                      className={cn(
+                        'inline-block text-white uppercase text-[clamp(24px,2vw,36px)] leading-[1.38]',
+                        hasEntered && 'animate-fadeinup-char'
+                      )}
                       style={{
-                        animationDelay: `${(wordIndex * 10 + charIndex) * 30}ms`,
+                        animationDelay: `${(wordIndex * 8 + charIndex) * 15}ms`,
                       }}
                     >
                       {char}
@@ -53,9 +85,12 @@ export function ScrollingText({
                   ))}
                   <span
                     aria-hidden="true"
-                    className="inline-block animate-fadeinup-char text-white uppercase text-[clamp(24px,2vw,36px)] leading-[1.38]"
+                    className={cn(
+                      'inline-block text-white uppercase text-[clamp(24px,2vw,36px)] leading-[1.38]',
+                      hasEntered && 'animate-fadeinup-char'
+                    )}
                     style={{
-                      animationDelay: `${(wordIndex * 10 + word.length) * 30}ms`,
+                      animationDelay: `${(wordIndex * 8 + word.length) * 15}ms`,
                     }}
                   >
                     &nbsp;

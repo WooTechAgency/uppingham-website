@@ -169,18 +169,8 @@ body {
     animation: redLineReveal 400ms ease-out 400ms both;
   }
 
-  .animate-scroll-ltr {
-    animation: scrollLeftToRight 28s linear infinite;
-  }
 
-  .animate-scroll-ltr-delayed {
-    animation: scrollLeftToRight 28s linear infinite;
-    animation-delay: -14s;
-  }
-
-  .animate-scroll-diagonal {
-    animation: scrollDiagonal 14s ease-in-out infinite alternate;
-  }
+  .animate-scroll-diagonal {}
 
   .animate-fadeinup-char {
     opacity: 0;

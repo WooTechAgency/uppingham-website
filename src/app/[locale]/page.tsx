@@ -30,13 +30,14 @@ export default function HomePage() {
     <>
       <RedLineWrapper autoFillFirstFold={true} />
       {/* <HeroImage /> */}
-      <ScrollingText />
+      
       <HeroSection />
       <VideoSection />
       <Headmaster />
       <ClassroomSlider />
       <Campus />
       <Admissions />
+      <ScrollingText />
      
     </>
   );
