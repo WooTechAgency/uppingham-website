@@ -93,5 +93,10 @@
     "ctaHref": "/admissions",
     "imageSrc": "/home/hero-senior.jpg",
     "imageAlt": "Học sinh đang học cùng nhau"
+  },
+  "scrollingText": {
+    "text": "MỤC ĐÍCH CỦA UPPINGHAM SCHOOL LÀ TRUYỀN CẢM HỨNG CHO THANH THIẾU NIÊN VỀ TƯƠNG LAI BẰNG CÁCH TRAO QUYỀN CHO CÁC EM KỸ NĂNG, HOÀI BÃO VÀ SỰ TỰ TIN ĐỂ TỰ ĐỊNH HÌNH CON ĐƯỜNG CỦA MÌNH TRONG CUỘC SỐNG, CÙNG VỚI TINH THẦN TRÁCH NHIỆM ĐỂ XÂY DỰNG MỘT TƯƠNG LAI TỐT ĐẸP HƠN CHO CỘNG ĐỒNG.",
+    "backgroundImage": "/home/scrolling-text-bg.jpg",
+    "backgroundAlt": "Học sinh Uppingham ngoài trời"
   }
 }

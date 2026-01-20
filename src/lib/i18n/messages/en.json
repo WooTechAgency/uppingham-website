@@ -93,5 +93,10 @@
     "ctaHref": "/admissions",
     "imageSrc": "/home/hero-senior.jpg",
     "imageAlt": "Students learning together"
+  },
+  "scrollingText": {
+    "text": "UPPINGHAM SCHOOL'S PURPOSE IS TO INSPIRE IN YOUNG PEOPLE AN EXCITEMENT FOR THE FUTURE BY EMPOWERING THEM WITH THE SKILLS, AMBITION, AND CONFIDENCE TO NAVIGATE THEIR OWN PATHWAY THROUGH LIFE, ACCOMPANIED BY A SENSE OF RESPONSIBILITY TO BUILD A BETTER FUTURE FOR THE COMMUNITIES OF WHICH THEY WILL BE A PART.",
+    "backgroundImage": "/home/scrolling-text-bg.jpg",
+    "backgroundAlt": "Uppingham students outdoors"
   }
 }

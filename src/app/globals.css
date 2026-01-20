@@ -102,6 +102,26 @@ body {
   }
 }
 
+@keyframes scrollLeftToRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollDiagonal {
+  0% {
+    transform: translate(-6%, -6%);
+  }
+
+  100% {
+    transform: translate(6%, 6%);
+  }
+}
+
 .container {
   @apply xl:max-w-[1360px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8;
 }
@@ -147,5 +167,23 @@ body {
   .animate-redline-delay {
     transform-origin: top;
     animation: redLineReveal 400ms ease-out 400ms both;
+  }
+
+  .animate-scroll-ltr {
+    animation: scrollLeftToRight 28s linear infinite;
+  }
+
+  .animate-scroll-ltr-delayed {
+    animation: scrollLeftToRight 28s linear infinite;
+    animation-delay: -14s;
+  }
+
+  .animate-scroll-diagonal {
+    animation: scrollDiagonal 14s ease-in-out infinite alternate;
+  }
+
+  .animate-fadeinup-char {
+    opacity: 0;
+    animation: fadeInUp 600ms ease-out forwards;
   }
 }
