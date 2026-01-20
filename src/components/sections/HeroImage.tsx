@@ -56,7 +56,7 @@ export function HeroImage({
             {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" /> */}
           </div>
           {/* Content */}
-          <div className="relative z-10 flex min-h-[calc(100vh-148px)] max-h-[450px] flex-col items-center justify-center gap-0 text-center">
+          <div className="relative z-10 flex w-full flex-col items-center justify-center gap-0 text-center ratio-1680/886">
             {/* Line 1: from top to above heading (stops before "WHERE TOMORROW'S LEADERS ARE MADE") */}
             <div className="w-[1px] flex-1 min-h-[clamp(80px,8vh,138px)]  bg-red mx-auto relative z-10 animate-redline" /> 
             <div className="wrap-conttent-hero relative py-[50px]">

@@ -33,8 +33,9 @@ export default function AdmissionsPage() {
       <RedLineWrapper autoFillFirstFold={true} />
       <HeroImage />
       {/* <HeroSection /> */}
-      <VideoSection />
       <Headmaster />
+      <VideoSection />
+     
       <ClassroomSlider />
       <Campus />
       <Admissions />

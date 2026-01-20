@@ -31,10 +31,10 @@ export default function CareersPage() {
     <>
     <RedLineWrapper autoFillFirstFold= { true} />
     <HeroImage />
-    <VideoSection />
-    < Headmaster />
     <ClassroomSlider />
-    < Campus />
+    <Headmaster />
+    <VideoSection />
+    <Campus />
     <Admissions />
     </>
   );

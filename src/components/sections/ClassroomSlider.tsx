@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Fade from 'embla-carousel-fade';
 import { useTranslations } from 'next-intl';
 import { Heading } from '@/components/ui/Heading';
 import { Image } from '@/components/ui/Image';
@@ -20,7 +21,7 @@ export function ClassroomSlider() {
   const t = useTranslations('classroomSlider');
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Fade()]);
 
   // TODO: Replace placeholder slides with final Figma copy when available.
   const slides: Slide[] = [
