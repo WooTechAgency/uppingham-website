@@ -6,5 +6,6 @@ export * from './Headmaster';
 export * from './HeroImage';
 export * from './HeroSection';
 export * from './Learning';
+export * from './News';
 export * from './ScrollingText';
 export * from './VideoSection';

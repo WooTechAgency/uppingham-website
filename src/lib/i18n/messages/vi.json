@@ -150,20 +150,57 @@
     "slideButton": "Chuyển đến slide {index}",
     "slides": {
       "holistic": {
-        "title": "FOR THOSE <br/> WHO DREAM BIG",
-        "description": "Supported academically, emotionally and socially.",
-        "ctaLabel": "Learn more",
+        "title": "CHO NHỮNG <br/> AI DÁM ƯỚC MƠ",
+        "description": "Được hỗ trợ về học thuật, cảm xúc và kỹ năng xã hội.",
+        "ctaLabel": "Tìm hiểu thêm",
         "ctaHref": "/learning",
         "image": "/home/learning-1.jpg",
-        "imageAlt": "Student playing piano"
+        "imageAlt": "Học sinh chơi đàn piano"
       },
       "enrichment": {
-        "title": "FOR THOSE <br/> WHO CREATE",
-        "description": "Creativity and expression woven into daily learning.",
-        "ctaLabel": "Learn more",
+        "title": "CHO NHỮNG <br/> AI SÁNG TẠO",
+        "description": "Sáng tạo và biểu đạt được lồng ghép trong học tập hằng ngày.",
+        "ctaLabel": "Tìm hiểu thêm",
         "ctaHref": "/learning",
         "image": "/home/learning-2.jpg",
-        "imageAlt": "Student doing creative activity"
+        "imageAlt": "Học sinh hoạt động sáng tạo"
+      }
+    }
+  },
+  "news": {
+    "sectionLabel": "Tin tức và sự kiện",
+    "eyebrow": "Truyền thông",
+    "heading": "TIN TỨC & SỰ KIỆN",
+    "ctaLabel": "Xem tất cả",
+    "ctaHref": "/news",
+    "items": {
+      "termStart": {
+        "date": "01/01/26",
+        "title": "Khởi đầu tự tin cho học kỳ mới",
+        "description": "Học sinh Tiểu học hòa nhập vào học kỳ mới với năng lượng và sự háo hức.",
+        "image": "/home/news-1.jpg",
+        "imageAlt": "Học sinh vui vẻ ngoài trời"
+      },
+      "studentExhibition": {
+        "date": "03/01/26",
+        "title": "Sáng tạo tỏa sáng tại triển lãm học sinh",
+        "description": "Triển lãm học sinh gần đây tôn vinh sự sáng tạo trong nghệ thuật, thiết kế và âm nhạc.",
+        "image": "/home/news-2.jpg",
+        "imageAlt": "Triển lãm học sinh"
+      },
+      "sportsMorning": {
+        "date": "05/01/26",
+        "title": "Tinh thần đồng đội tại buổi thể thao liên nhà",
+        "description": "Học sinh tham gia buổi thể thao liên nhà, thể hiện tinh thần teamwork và tôn trọng.",
+        "image": "/home/news-3.jpg",
+        "imageAlt": "Học sinh trên sân thể thao"
+      },
+      "outdoorLearning": {
+        "date": "08/01/26",
+        "title": "Học tập vượt ra ngoài lớp học",
+        "description": "Theo phương pháp học trải nghiệm, học sinh tham gia các hoạt động ngoài trời thực hành.",
+        "image": "/home/news-4.jpg",
+        "imageAlt": "Học sinh khám phá ngoài trời"
       }
     }
   }

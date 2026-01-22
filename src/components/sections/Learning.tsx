@@ -174,7 +174,7 @@ export function Learning() {
                 {slides.map((slide) => (
                   <div
                     key={slide.id}
-                    className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_87.5%] lg:flex-[0_0_94%] pr-[60px]"
+                    className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_87.5%] lg:flex-[0_0_96%] 2xl:flex-[0_0_82%] pr-[60px]"
                   >
                     <div className="relative aspect-[168/70] w-full overflow-hidden bg-white">
                       <Image

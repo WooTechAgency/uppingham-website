@@ -151,5 +151,42 @@
         "imageAlt": "Student doing creative activity"
       }
     }
+  },
+  "news": {
+    "sectionLabel": "News and events",
+    "eyebrow": "Media",
+    "heading": "NEWS & EVENTS",
+    "ctaLabel": "Read all",
+    "ctaHref": "/news",
+    "items": {
+      "termStart": {
+        "date": "01/01/26",
+        "title": "A Confident Start to the Term",
+        "description": "Students across the Primary School have settled into the new term with energy and enthusiasm.",
+        "image": "/home/news-1.jpg",
+        "imageAlt": "Student smiling outdoors"
+      },
+      "studentExhibition": {
+        "date": "03/01/26",
+        "title": "Creativity on Display at Student Exhibition",
+        "description": "Our recent student exhibition celebrated creativity across art, design, and music.",
+        "image": "/home/news-2.jpg",
+        "imageAlt": "Student exhibition"
+      },
+      "sportsMorning": {
+        "date": "05/01/26",
+        "title": "Team Spirit Shines at Inter-House Sports Morning",
+        "description": "Students took part in a friendly inter-house sports morning, demonstrating teamwork and respect.",
+        "image": "/home/news-3.jpg",
+        "imageAlt": "Students on sports field"
+      },
+      "outdoorLearning": {
+        "date": "08/01/26",
+        "title": "Learning Beyond the Classroom",
+        "description": "As part of our experiential learning approach, students engaged in hands-on outdoor activities.",
+        "image": "/home/news-4.jpg",
+        "imageAlt": "Students exploring outdoors"
+      }
+    }
   }
 }

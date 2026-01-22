@@ -9,6 +9,7 @@ import {
   HeroImage,
   HeroSection,
   Learning,
+  News,
   ScrollingText,
   VideoSection,
 } from '@/components/sections';
@@ -43,6 +44,7 @@ export default function HomePage() {
       <ScrollingText />
       <Education />
       <Learning />
+      <News />
     </>
   );
 }
