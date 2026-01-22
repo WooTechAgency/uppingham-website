@@ -104,7 +104,9 @@
     "eyebrow": "Education",
     "heading": "PURPOSE & PRIORITIES",
     "nextButton": "Next slide",
+    "previousButton": "Previous slide",
     "slideButton": "Go to slide {index}",
+    
     "slides": {
       "holistic": {
         "title": "HOLISTIC <br/> DEVELOPMENT",

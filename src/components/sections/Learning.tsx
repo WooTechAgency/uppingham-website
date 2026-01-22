@@ -48,22 +48,22 @@ export function Learning() {
       image: t('slides.character.image'),
     },
     {
-      id: 'holistic-development',
+      id: 'holistic-development2',
       title: t('slides.holistic.title'),
       image: t('slides.holistic.image'),
     },
     {
-      id: 'enrichment',
+      id: 'enrichment2',
       title: t('slides.enrichment.title'),
       image: t('slides.enrichment.image'),
     },
     {
-      id: 'global-awareness',
+      id: 'global-awareness2',
       title: t('slides.global.title'),
       image: t('slides.global.image'),
     },
     {
-      id: 'character',
+      id: 'character2',
       title: t('slides.character.title'),
       image: t('slides.character.image'),
     },
@@ -200,55 +200,42 @@ export function Learning() {
 
       <div className="mt-0">
         <div className="container">
-          <div className="relative -mr-[calc((100vw-100%)/2)] bg-stone pt-25">
+          <div className="relative -mr-[calc((100vw-100%)/2)] bg-stone py-[75px] ">
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-6 mr-6">
+              <div className="flex gap-[30px] mr-6">
                 {slides.map((slide) => (
                   <div
                     key={slide.id}
-                    className="min-w-0 flex-[0_0_56%] sm:flex-[0_0_35%] lg:flex-[0_0_28% xl:flex-[0_0_22%] max-w-[375px]"
+                    className="flex flex-col justify-between gap-8 min-w-0 flex-[0_0_56%] sm:flex-[0_0_35%] lg:flex-[0_0_28%] pr-[30px] border-r border-dark-stone"
                   >
-                    <div className="relative aspect-[1/1] w-full overflow-hidden bg-white">
-                      <Image
-                        hoverZoom
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 80vw, 32vw"
-                      />
+                    <div className="flex flex-col gap-8">
+                      <div className="w-full h-[1px] bg-dark-stone h-[1px]"></div>
+                      <div className="relative aspect-[375/400] w-full overflow-hidden bg-white">
+                        <Image
+                          hoverZoom
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 80vw, 32vw"
+                        />
+                      </div>
+                      <Heading
+                        as="h4"
+                        variant="h4"
+                        align="left"
+                        className="text-secondary uppercase "
+                      >
+                        <span
+                          dangerouslySetInnerHTML={{ __html: slide.title }}
+                        />
+                      </Heading>
                     </div>
-                    <Heading
-                      as="h4"
-                      variant="h4"
-                      align="left"
-                      className="mt-8 text-secondary uppercase "
-                    >
-                      <span dangerouslySetInnerHTML={{ __html: slide.title }} />
-                    </Heading>
+                    <div className="w-full h-[1px] bg-dark-stone h-[1px]"></div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {hasMultipleSlides ? (
-              <div className="mt-6 flex items-center justify-start gap-3">
-                {scrollSnaps.map((_, index) => (
-                  <button
-                    key={`dot-${index}`}
-                    type="button"
-                    onClick={() => emblaApi?.scrollTo(index)}
-                    aria-label={t('slideButton', { index: index + 1 })}
-                    className={cn(
-                      'h-2.5 w-2.5 rounded-full border border-primary transition',
-                      index === selectedIndex
-                        ? 'bg-primary'
-                        : 'bg-transparent hover:border-primary/70',
-                    )}
-                  />
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
       </div>
