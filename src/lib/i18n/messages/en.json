@@ -188,5 +188,15 @@
         "imageAlt": "Students exploring outdoors"
       }
     }
+  },
+  "formAdmissions": {
+    "heading": "START YOUR ADMISSIONS JOURNEY",
+    "description": "Enter your child's date of birth to discover the key steps to joining us.",
+    "question": "What is your child's date of birth?",
+    "day": "DD",
+    "month": "MM",
+    "year": "YYYY",
+    "ctaLabel": "Start",
+    "ctaHref": "/admissions"
   }
 }

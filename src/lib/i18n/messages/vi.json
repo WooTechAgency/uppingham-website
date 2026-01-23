@@ -203,5 +203,15 @@
         "imageAlt": "Học sinh khám phá ngoài trời"
       }
     }
+  },
+  "formAdmissions": {
+    "heading": "BẮT ĐẦU HÀNH TRÌNH TUYỂN SINH",
+    "description": "Nhập ngày sinh của con bạn để khám phá các bước quan trọng để gia nhập chúng tôi.",
+    "question": "Ngày sinh của con bạn là gì?",
+    "day": "DD",
+    "month": "MM",
+    "year": "YYYY",
+    "ctaLabel": "Bắt đầu",
+    "ctaHref": "/admissions"
   }
 }

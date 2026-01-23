@@ -5,8 +5,8 @@ import {
   Campus,
   ClassroomSlider,
   Education,
+  FormAdmissions,
   Headmaster,
-  HeroImage,
   HeroSection,
   Learning,
   News,
@@ -45,6 +45,7 @@ export default function HomePage() {
       <Education />
       <Learning />
       <News />
+      <FormAdmissions />
     </>
   );
 }

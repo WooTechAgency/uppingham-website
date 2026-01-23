@@ -74,7 +74,7 @@ export function News() {
           {items.map((item) => (
             <article
               key={item.id}
-              className="flex flex-col justify-between gap-8 pr-[30px] border-r border-dark-stone"
+              className="flex flex-col justify-between gap-8 pr-[30px] border-r border-dark-stone last:border-r-0 last:pr-0"
             >
               <div className="flex flex-col gap-8">
                 <div className="w-full h-[1px] bg-dark-stone h-[1px]"></div>

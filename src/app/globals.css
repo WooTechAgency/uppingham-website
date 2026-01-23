@@ -15,12 +15,12 @@
   --background: var(--stone);
 
   /* Heading font sizes */
-  --heading-h1: clamp(54px, 3vw, 72px);
+  --heading-h1: clamp(54px, 5vw, 72px);
   --heading-h2: clamp(40px, 3vw, 50px);
   --heading-h3: clamp(24px, 3vw, 32px);
   --heading-h4: clamp(20px, 2vw, 24px);
-  --heading-h5: clamp(18px, 1vw, 20px);
-  --heading-h6: clamp(12px, 1vw, 20px);
+  --heading-h5: clamp(24px, 2vw, 28px);
+  --heading-h6: clamp(12px, 2vw, 20px);
 
   /* Optional line-heights */
   --line-height-h1: 1.1;

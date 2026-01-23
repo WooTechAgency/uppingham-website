@@ -4,4 +4,5 @@ export * from "./Heading";
 export * from "./Icon";
 export * from "./Image";
 export * from "./Link";
+export * from "./Select";
 export * from "./Text";
