@@ -198,5 +198,14 @@
     "year": "YYYY",
     "ctaLabel": "Start",
     "ctaHref": "/admissions"
+  },
+  "downloadProspectus": {
+    "heading": "STILL CURIOUS?<br/>DISCOVER LIFE AT UPPINGHAM",
+    "description": "We understand that securing your child's future is one of the most important choices you will make. Let us help you make the right decision. Our prospectus offers a detailed introduction to life and learning at Uppingham.",
+    "ctaLabel": "Download Prospectus",
+    "ctaHref": "/prospectus",
+    "helpText": "We're here to help. <u>Contact us.</u>",
+    "image": "/home/download.jpg",
+    "imageAlt": "Uppingham prospectus booklet"
   }
 }

@@ -213,5 +213,14 @@
     "year": "YYYY",
     "ctaLabel": "Bắt đầu",
     "ctaHref": "/admissions"
+  },
+  "downloadProspectus": {
+    "heading": "VẪN CÒN THẮC MẮC?<br/>KHÁM PHÁ CUỘC SỐNG TẠI UPPINGHAM",
+    "description": "Chúng tôi hiểu rằng việc đảm bảo tương lai cho con bạn là một trong những quyết định quan trọng nhất. Hãy để chúng tôi giúp bạn lựa chọn đúng. Ấn phẩm giới thiệu mang đến cái nhìn chi tiết về cuộc sống và học tập tại Uppingham.",
+    "ctaLabel": "Tải ấn phẩm",
+    "ctaHref": "/prospectus",
+    "helpText": "Chúng tôi luôn sẵn sàng hỗ trợ. <u>Liên hệ.</u>",
+    "image": "/home/download.jpg",
+    "imageAlt": "Ấn phẩm giới thiệu Uppingham"
   }
 }

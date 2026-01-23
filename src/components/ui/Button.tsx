@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'white';
 export type ButtonSize = 'sm' | 'lg';
 
 export type ButtonProps = Omit<
@@ -30,6 +30,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-secondary text-white border border-[2px] border-secondary hover:bg-transparent hover:text-white hover:border-white focus-visible:ring-neutral-900',
   outline:
     'border border-[2px] bg-transparent border-white text-white hover:bg-white hover:text-primary focus-visible:ring-neutral-400',
+  white:
+    'bg-white text-primary border border-[2px] border-white hover:bg-transparent hover:text-white hover:border-white focus-visible:ring-neutral-900',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -53,7 +55,7 @@ export function Button({
     base,
     variantClasses[variant],
     sizeClasses[size],
-    className
+    className,
   );
 
   const content = (

@@ -72,7 +72,7 @@ export function Select({
           selectClassName,
         )}
       >
-        <span className={cn(!selectedOption && 'text-primary/60')}>
+        <span className={cn(!selectedOption && 'text-primary/100')}>
           {selectedOption?.label ?? label}
         </span>
       </button>
@@ -96,7 +96,7 @@ export function Select({
         <div
           role="listbox"
           aria-labelledby={id}
-          className="absolute left-0 top-[calc(100%+8px)] z-20 w-full rounded-[10px] border border-dark-stone bg-white py-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+          className="absolute left-0 top-[calc(100%+8px)] z-20 w-full  border border-dark-stone bg-white py-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
         >
           <div className="max-h-[240px] overflow-y-auto">
             {options.map((option) => {
@@ -109,7 +109,7 @@ export function Select({
                   aria-selected={isSelected}
                   onClick={() => handleSelect(option.value)}
                   className={cn(
-                    'flex w-full items-center justify-start px-4 py-2 text-left text-[16px] font-[450] text-primary',
+                    'flex w-full items-center justify-start px-4 py-2 text-left text-[20px] font-[450] text-primary',
                     isSelected && 'text-secondary',
                     'hover:bg-stone',
                   )}

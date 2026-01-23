@@ -8,10 +8,7 @@ type RedLineProps = {
   autoFillFirstFold?: boolean;
 };
 
-export function RedLine({
-  className,
-  autoFillFirstFold = true,
-}: RedLineProps) {
+export function RedLine({ className, autoFillFirstFold = true }: RedLineProps) {
   const [lineHeight, setLineHeight] = React.useState(0);
 
   const rafIntroRef = React.useRef<number | null>(null);
@@ -36,7 +33,9 @@ export function RedLine({
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
       const totalScrollableHeight = documentHeight - windowHeight;
-      return totalScrollableHeight > 0 ? clamp01(scrollTop / totalScrollableHeight) : 0;
+      return totalScrollableHeight > 0
+        ? clamp01(scrollTop / totalScrollableHeight)
+        : 0;
     };
 
     const computeHeightPercent = () => {
@@ -160,7 +159,8 @@ export function RedLine({
     const handleResize = () => {
       // resize làm firstFold thay đổi => update target và follow mượt
       if (autoFillFirstFold && !isIntroDoneRef.current) {
-        if (rafIntroRef.current !== null) cancelAnimationFrame(rafIntroRef.current);
+        if (rafIntroRef.current !== null)
+          cancelAnimationFrame(rafIntroRef.current);
         runIntro();
         return;
       }
@@ -168,7 +168,8 @@ export function RedLine({
     };
 
     // Init
-    const initialScrollTop = window.scrollY || document.documentElement.scrollTop;
+    const initialScrollTop =
+      window.scrollY || document.documentElement.scrollTop;
     if (!autoFillFirstFold) {
       isIntroDoneRef.current = true;
       setImmediate(computeHeightPercent());
@@ -186,16 +187,18 @@ export function RedLine({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
 
-      if (rafIntroRef.current !== null) cancelAnimationFrame(rafIntroRef.current);
-      if (rafFollowRef.current !== null) cancelAnimationFrame(rafFollowRef.current);
+      if (rafIntroRef.current !== null)
+        cancelAnimationFrame(rafIntroRef.current);
+      if (rafFollowRef.current !== null)
+        cancelAnimationFrame(rafFollowRef.current);
     };
   }, [autoFillFirstFold]);
 
   return (
     <div
       className={cn(
-        'absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full pointer-events-none z-10 red-line',
-        className
+        'absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full pointer-events-none z-10 red-line mix-blend-multiply',
+        className,
       )}
       style={{
         clipPath: `inset(0 0 ${100 - lineHeight}% 0)`,

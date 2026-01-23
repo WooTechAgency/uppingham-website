@@ -7,6 +7,7 @@ export * from './HeroImage';
 export * from './HeroSection';
 export * from './Learning';
 export * from './FormAdmissions';
+export * from './DownloadProspectus';
 export * from './News';
 export * from './ScrollingText';
 export * from './VideoSection';

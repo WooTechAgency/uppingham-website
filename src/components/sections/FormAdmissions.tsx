@@ -19,7 +19,7 @@ export function FormAdmissions() {
   });
 
   return (
-    <section className="relative bg-primary py-[220px] text-white my-25">
+    <section className="relative bg-primary py-[220px] text-white mt-25">
       <div className="container">
         <div className="flex flex-col items-center gap-[75px] py-[75px] z-20 bg-primary relative">
           <div className="flex flex-col items-center gap-8 text-center">

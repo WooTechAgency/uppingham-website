@@ -5,6 +5,7 @@ import {
   Campus,
   ClassroomSlider,
   Education,
+  DownloadProspectus,
   FormAdmissions,
   Headmaster,
   HeroSection,
@@ -46,6 +47,7 @@ export default function HomePage() {
       <Learning />
       <News />
       <FormAdmissions />
+      <DownloadProspectus />
     </>
   );
 }
