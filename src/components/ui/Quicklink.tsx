@@ -16,9 +16,16 @@ type QuickLinkMenuItem = {
 type QuicklinkProps = {
   menuTitle?: string;
   menuItems?: QuickLinkMenuItem[];
+  submenuKey?: string; // e.g., 'learningSubmenu', 'contactSubmenu', 'admissionsSubmenu'
+  submenu2Key?: string; // e.g., 'learningSubmenu2.internationalCurriculum' for level 2
 };
 
-export function Quicklink({ menuTitle, menuItems = [] }: QuicklinkProps) {
+export function Quicklink({
+  menuTitle,
+  menuItems = [],
+  submenuKey = 'learningSubmenu',
+  submenu2Key = 'learningSubmenu2.internationalCurriculum',
+}: QuicklinkProps) {
   const locale = useLocale() as Locale;
   const t = useTranslations('quicklink');
   const tMenu = useTranslations('menu');
@@ -59,14 +66,12 @@ export function Quicklink({ menuTitle, menuItems = [] }: QuicklinkProps) {
   ) => {
     const hasChildren = item.children && item.children.length > 0;
     const translationKey =
-      level === 0
-        ? `learningSubmenu.${item.key}`
-        : `learningSubmenu2.internationalCurriculum.${item.key}`;
+      level === 0 ? `${submenuKey}.${item.key}` : `${submenu2Key}.${item.key}`;
 
     const isSub = level !== 0;
     const isFirst = index === 0;
     const isLast = index === allItems.length - 1;
-
+    const parentPadding = cn('py-4', isFirst && 'pt-0', isLast && 'pb-0');
     const subPadding = cn('py-2', isFirst && 'pt-0', isLast && 'pb-4');
 
     return (
@@ -76,7 +81,9 @@ export function Quicklink({ menuTitle, menuItems = [] }: QuicklinkProps) {
             href={item.href}
             className={cn(
               'block py-4 text-primary font-[450] hover:text-secondary transition-colors font-tt-norms',
-              level === 0 ? 'text-base ' : cn('text-sm pl-[30px]', subPadding),
+              level === 0
+                ? cn('text-[20px] ', parentPadding)
+                : cn('text-sm pl-[30px]', subPadding),
             )}
             onClick={() => setIsMenuOpen(false)}
           >
@@ -86,7 +93,9 @@ export function Quicklink({ menuTitle, menuItems = [] }: QuicklinkProps) {
           <span
             className={cn(
               'block py-4 px-0 font-[450] text-primary font-tt-norms',
-              level === 0 ? 'text-base ' : cn('text-sm pl-[30px]', subPadding),
+              level === 0
+                ? cn('text-[20px] ', parentPadding)
+                : cn('text-[16px] pl-[30px]', subPadding),
             )}
           >
             {tMenu(translationKey as any)}
@@ -107,74 +116,88 @@ export function Quicklink({ menuTitle, menuItems = [] }: QuicklinkProps) {
   };
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col flex-col gap-4">
-      {/* Book Tour Button */}
-      <Link
-        href={bookTourHref}
-        className="flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity  "
-      >
-        <BookTourIcon className="text-white w-5 h-auto" />
-        <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
-          {t('bookTour')}
-        </span>
-      </Link>
-
-      {/* Enquire Button */}
-      <Link
-        href={enquireHref}
-        className="flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity "
-      >
-        <EnquireIcon className="text-white w-5 h-auto" />
-        <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
-          {t('enquire')}
-        </span>
-      </Link>
-
-      {/* Quick Menu Button */}
-      <div className="relative">
-        <button
-          ref={buttonRef}
-          type="button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={cn(
-            'flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity',
-            isMenuOpen ? 'bg-secondary' : 'bg-primary',
-          )}
-          aria-label={t('quickMenu')}
-          aria-expanded={isMenuOpen}
-        >
-          <QuickMenuIcon className="text-white w-5 h-auto" />
-          <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
-            <span className="block">{t('quickMenu')}</span>
-          </span>
-        </button>
-      </div>
-
-      {/* Quick Menu Popup */}
+    <>
+      {/* Overlay - covers entire screen except Quicklink */}
       {isMenuOpen && menuItems.length > 0 && (
         <div
-          ref={menuRef}
-          className="absolute right-full top-[50%] -translate-y-1/2 mr-6 bg-white min-w-[clamp(200px,20vw,290px)] z-[60]"
-        >
-          <div className="p-4">
-            {/* Header */}
-            {menuTitle && (
-              <div className="mb-4">
-                <h3 className="text-secondary text-[15px] font-[450] text-sm uppercase mb-2 font-tt-norms">
-                  {menuTitle}
-                </h3>
-              </div>
-            )}
-
-            {/* Menu Items */}
-            <nav className="flex flex-col">
-              {menuItems.map((item, index) =>
-                renderMenuItem(item, index, menuItems),
-              )}
-            </nav>
-          </div>
-        </div>
+          className="fixed inset-0 bg-black/20 z-[45]"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
       )}
-    </div>
+
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col flex-col gap-4">
+        {/* Book Tour Button */}
+        <Link
+          href={bookTourHref}
+          className="flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity  "
+        >
+          <BookTourIcon className="text-white w-5 h-auto" />
+          <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
+            {t('bookTour')}
+          </span>
+        </Link>
+
+        {/* Enquire Button */}
+        <Link
+          href={enquireHref}
+          className="flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity "
+        >
+          <EnquireIcon className="text-white w-5 h-auto" />
+          <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
+            {t('enquire')}
+          </span>
+        </Link>
+
+        {/* Quick Menu Button */}
+        <div className="relative">
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={cn(
+              'flex flex-col items-center justify-center gap-3 bg-primary px-4 py-4 w-[96px] min-h-[92px] border-b-[4px] border-secondary transition-opacity',
+              isMenuOpen ? 'bg-secondary' : 'bg-primary',
+            )}
+            aria-label={t('quickMenu')}
+            aria-expanded={isMenuOpen}
+          >
+            <QuickMenuIcon className="text-white w-5 h-auto" />
+            <span className="text-white text-[14px] font-[450] font-tt-norms text-center">
+              <span className="block">{t('quickMenu')}</span>
+            </span>
+          </button>
+        </div>
+
+        {/* Quick Menu Popup */}
+        {isMenuOpen && menuItems.length > 0 && (
+          // add overlay dark background
+          <>
+            <div
+              ref={menuRef}
+              className="fixed right-full top-[50%] -translate-y-1/2 mr-6 bg-white min-w-[310px] z-[60]"
+            >
+              <div className="px-9 py-6">
+                {/* Header */}
+                {menuTitle && (
+                  <div className="mb-4">
+                    <h3 className="text-secondary text-[15px] font-[450] text-sm uppercase mb-2 font-tt-norms">
+                      {menuTitle}
+                    </h3>
+                  </div>
+                )}
+
+                {/* Menu Items */}
+                <nav className="flex flex-col">
+                  {menuItems.map((item, index) =>
+                    renderMenuItem(item, index, menuItems),
+                  )}
+                </nav>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }

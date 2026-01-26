@@ -21,12 +21,23 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+type AdmissionsPageProps = {
+  params: Promise<{ locale: Locale }>;
+};
+
 export default async function AdmissionsPage({ params }: AdmissionsPageProps) {
   const { locale } = await params;
   // const content = getPageContent('admissions');
   const menuItems = [
-    { key: 'contactUs', href: `/${locale}/contact` },
-    { key: 'careers', href: `/${locale}/careers` },
+    { key: 'joinUppingham', href: `/${locale}/admissions/join` },
+    { key: 'visitingTheSchool', href: `/${locale}/admissions/visiting` },
+    { key: 'admissionsGuide', href: `/${locale}/admissions/guide` },
+    { key: 'downloadProspectus', href: `/${locale}/admissions/prospectus` },
+    { key: 'tuitionsFees', href: `/${locale}/admissions/tuitions-fees` },
+    { key: 'termDates', href: `/${locale}/admissions/term-dates` },
+    { key: 'registration', href: `/${locale}/admissions/registration` },
+    { key: 'scholarships', href: `/${locale}/admissions/scholarships` },
+    { key: 'schoolShops', href: `/${locale}/admissions/school-shops` },
   ];
 
   // if (!content) {
@@ -39,7 +50,11 @@ export default async function AdmissionsPage({ params }: AdmissionsPageProps) {
   return (
     <>
       <RedLineWrapper autoFillFirstFold={true} />
-      <Quicklink menuTitle="Contact" menuItems={menuItems} />
+      <Quicklink
+        menuTitle="Contact"
+        menuItems={menuItems}
+        submenuKey="admissionsSubmenu"
+      />
       <HeroImage />
       {/* <HeroSection /> */}
       <Headmaster />
