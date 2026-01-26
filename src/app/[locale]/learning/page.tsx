@@ -21,6 +21,7 @@ export default async function LearningPage({ params }: LearningPageProps) {
     { key: 'academicLife', href: `/${locale}/learning/academic-life` },
     {
       key: 'internationalCurriculum',
+      href: `/${locale}/learning/international-curriculum`,
       children: [
         {
           key: 'juniorSchool',
