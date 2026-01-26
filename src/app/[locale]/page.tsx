@@ -15,7 +15,9 @@ import {
   VideoSection,
 } from '@/components/sections';
 import { RedLineWrapper } from '@/components/ui/RedLineWrapper';
+import { Quicklink } from '@/components/ui/Quicklink';
 import { Metadata } from 'next';
+import { Locale } from '@/lib/i18n/config';
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = getPageContent('home');
@@ -25,7 +27,52 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function HomePage() {
+type HomePageProps = {
+  params: Promise<{ locale: Locale }>;
+};
+
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
+
+  const menuItems = [
+    {
+      key: 'academicLife',
+      href: `/${locale}/learning/academic-life`,
+    },
+    {
+      key: 'internationalCurriculum',
+      children: [
+        {
+          key: 'juniorSchool',
+          href: `/${locale}/learning/curriculum/junior-school`,
+        },
+        {
+          key: 'seniorSchool',
+          href: `/${locale}/learning/curriculum/senior-school`,
+        },
+        {
+          key: 'sixthForm',
+          href: `/${locale}/learning/curriculum/sixth-form`,
+        },
+      ],
+    },
+    {
+      key: 'bilingualCurriculum',
+      href: `/${locale}/learning/bilingual-curriculum`,
+    },
+    {
+      key: 'academicSupport',
+      href: `/${locale}/learning/academic-support`,
+    },
+    {
+      key: 'academicResults',
+      href: `/${locale}/learning/academic-results`,
+    },
+    {
+      key: 'calendarTimetable',
+      href: `/${locale}/learning/calendar`,
+    },
+  ];
   // Option 1: Use page data with BlockRenderer (data-driven)
   // const content = getPageContent('home');
   // return <BlockRenderer sections={content.sections} />;
@@ -34,6 +81,7 @@ export default function HomePage() {
   return (
     <>
       <RedLineWrapper autoFillFirstFold={true} />
+      <Quicklink menuTitle="Learning" menuItems={menuItems} />
       {/* <HeroImage /> */}
 
       <HeroSection />

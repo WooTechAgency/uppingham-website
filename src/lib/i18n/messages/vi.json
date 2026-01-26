@@ -282,8 +282,8 @@
     "learningSubmenu2": {
       "internationalCurriculum": {
         "juniorSchool": "Tiểu học",
-        "seniorSchool": "Trung học",
-        "sixthForm": "Lớp 12-13"
+        "seniorSchool": "Trung học CS",
+        "sixthForm": "Trung học PT"
       }
     },
     "lifeSubmenu": {
@@ -331,6 +331,16 @@
       "oldUppinghamians": "Cựu học sinh Uppingham (OUs)"
     },
     "contactSubmenu": {
+      "contactUs": "Liên hệ",
+      "careers": "Tuyển dụng"
+    }
+  },
+  "quicklink": {
+    "bookTour": "Đặt lịch tham quan",
+    "enquire": "Tư vấn",
+    "quickMenu": "Menu Nhanh",
+    "contact": "LIÊN HỆ",
+    "menuItems": {
       "contactUs": "Liên hệ",
       "careers": "Tuyển dụng"
     }

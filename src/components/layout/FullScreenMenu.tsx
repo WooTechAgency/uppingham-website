@@ -8,30 +8,12 @@ import { cn } from '@/lib/utils/cn';
 import { getMenuData } from '@/lib/data/menu';
 import { type MenuItem } from '@/types/menu';
 import { type Locale } from '@/lib/i18n/config';
+import { ArrowIcon } from '@/assets';
 
 type FullScreenMenuProps = {
   isOpen: boolean;
   onClose: () => void;
 };
-
-function ArrowIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="14"
-      viewBox="0 0 28 14"
-      fill="none"
-    >
-      <path d="M0 6.776L25 6.776" stroke="white" stroke-width="1.71429" />
-      <path
-        d="M19.8594 0.606079L25.8594 6.60608L19.8594 12.6061"
-        stroke="white"
-        stroke-width="1.71429"
-      />
-    </svg>
-  );
-}
 
 export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
   const locale = useLocale() as Locale;

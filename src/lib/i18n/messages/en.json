@@ -319,5 +319,15 @@
       "contactUs": "Contact us",
       "careers": "Careers"
     }
+  },
+  "quicklink": {
+    "bookTour": "Book Tour",
+    "enquire": "Enquire",
+    "quickMenu": "Quick Menu",
+    "contact": "CONTACT",
+    "menuItems": {
+      "contactUs": "Contact us",
+      "careers": "Careers"
+    }
   }
 }
