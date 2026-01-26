@@ -184,7 +184,7 @@ export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
                           type="button"
                           onClick={(e) => handleLevel1ArrowClick(item, e)}
                           className={cn(
-                            'p-2 transition-colors',
+                            'p-2 transition-colors cursor-pointer',
                             isActive
                               ? 'text-secondary'
                               : 'text-white hover:text-secondary',
@@ -244,7 +244,7 @@ export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
                             type="button"
                             onClick={(e) => handleLevel2ArrowClick(item, e)}
                             className={cn(
-                              'p-2 transition-colors',
+                              'p-2 transition-colors cursor-pointer',
                               isActive
                                 ? 'text-secondary'
                                 : 'text-white hover:text-secondary',

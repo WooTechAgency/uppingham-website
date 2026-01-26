@@ -192,3 +192,8 @@ body {
     transform: scaleX(0.5);
   }
 }
+.text-secondary{
+  path{
+    stroke: var(--secondary);
+  }
+}
