@@ -21,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-type AdmissionsPageProps = {
+export default async function AdmissionsPage({
+  params,
+}: {
   params: Promise<{ locale: Locale }>;
-};
-
-export default async function AdmissionsPage({ params }: AdmissionsPageProps) {
+}) {
   const { locale } = await params;
   // const content = getPageContent('admissions');
   const menuItems = [
