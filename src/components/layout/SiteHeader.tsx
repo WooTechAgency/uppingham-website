@@ -175,7 +175,7 @@ export function SiteHeader() {
               {isPortalsOpen && (
                 <div
                   className={cn(
-                    'font-tt-norms font-[450] absolute left-[-10px] right-0 mt-2 rounded-md z-50',
+                    'font-tt-norms font-[450] absolute left-[0px] right-0 mt-2 rounded-md z-50 bg-stone',
                     locale === 'vi' ? 'w-52' : 'w-34',
                   )}
                 >
