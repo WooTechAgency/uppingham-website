@@ -22,6 +22,8 @@ export function Learning() {
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const sliderRef = React.useRef<HTMLDivElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     loop: false,
@@ -76,6 +78,32 @@ export function Learning() {
       emblaApi.off('reInit', handleSelect);
     };
   }, [emblaApi, handleSelect]);
+
+  React.useEffect(() => {
+    const container = containerRef.current;
+    const slider = sliderRef.current;
+    if (!container || !slider) {
+      return;
+    }
+
+    const updateContainerWidth = () => {
+      slider.style.setProperty(
+        '--container-width',
+        `${container.offsetWidth}px`,
+      );
+    };
+
+    updateContainerWidth();
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const observer = new ResizeObserver(updateContainerWidth);
+      observer.observe(container);
+      return () => observer.disconnect();
+    }
+
+    window.addEventListener('resize', updateContainerWidth, { passive: true });
+    return () => window.removeEventListener('resize', updateContainerWidth);
+  }, []);
 
   return (
     <section
@@ -167,14 +195,17 @@ export function Learning() {
       </div>
 
       <div className="mt-0">
-        <div className="container">
-          <div className="relative -mr-[calc((100vw-100%)/2)] pt-[75px]">
+        <div className="container" ref={containerRef}>
+          <div
+            ref={sliderRef}
+            className="relative -mr-[calc((100vw-100%)/2)] pt-[75px]"
+          >
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex ">
                 {slides.map((slide) => (
                   <div
                     key={slide.id}
-                    className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_87.5%] lg:flex-[0_0_96%] 2xl:flex-[0_0_82%] pr-[60px]"
+                    className="min-w-0 shrink-0 w-[calc(var(--container-width)*0.85)] 2xl:w-[calc(var(--container-width)*0.9)] pr-[clamp(24px,2vw,60px)]"
                   >
                     <div className="relative aspect-[168/70] w-full overflow-hidden bg-white">
                       <Image
@@ -186,7 +217,7 @@ export function Learning() {
                         sizes="(max-width: 1024px) 90vw, 70vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
-                      <div className="absolute inset-0 flex items-end p-[75px]">
+                      <div className="absolute inset-0 flex items-end p-[clamp(25px,5vw,75px)]">
                         <div className="text-white flex flex-col gap-6">
                           <Heading
                             as="h2"
